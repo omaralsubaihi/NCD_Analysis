@@ -1,23 +1,14 @@
-# ------------------------------------------------------------
-# Project-level .Rprofile (cross-platform, fully automatic)
-# ------------------------------------------------------------
+# .Rprofile (project root)
 
-# 1️⃣ Set default CRAN mirror (for installs without prompts)
+# 1️⃣ Set CRAN mirror
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-# 2️⃣ Activate renv if present
-if (file.exists("renv/activate.R")) {
-  source("renv/activate.R")
-  
-  # 3️⃣ Automatically restore the environment if needed
-  if (!all(renv::status()$state == "consistent")) {
-    message("* Restoring project library via renv...")
-    renv::restore(confirm = FALSE)
-  }
-  
-  # 4️⃣ Automatically load ProjectTemplate if available
-  if (requireNamespace("ProjectTemplate", quietly = TRUE)) {
-    message("* Loading ProjectTemplate project...")
-    ProjectTemplate::load.project()
-  }
-}
+# 2️⃣ Activate renv
+source("renv/activate.R")
+
+# 3️⃣ Restore all packages (automatically installs anything missing)
+renv::restore(confirm = FALSE)
+
+# 4️⃣ Load ProjectTemplate
+library(ProjectTemplate)
+load.project()
