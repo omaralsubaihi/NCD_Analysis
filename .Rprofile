@@ -11,4 +11,5 @@ renv::restore(confirm = FALSE)
 
 # 4️⃣ Load ProjectTemplate
 library(ProjectTemplate)
+migrate.project()
 load.project()
