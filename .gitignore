@@ -1,0 +1,15 @@
+# RStudio
+.Rhistory
+.RData
+.Rproj.user/
+
+# renv local libraries
+renv/library/
+
+# ProjectTemplate caches
+cache/
+logs/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
